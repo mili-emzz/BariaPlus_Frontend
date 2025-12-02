@@ -270,7 +270,11 @@ export class AnthropometricMeasurements implements OnInit {
     if (this.modalType === 'success') {
       // Si es modal de éxito, limpiar estado y navegar
       this.consultationStateService.clearAllConsultationData();
-      this.router.navigate(['/analysis', this.consultationId]);
+      this.router.navigate(['/analysis', this.consultationId],
+        {
+        queryParams: { fromAppointments: 'false' } 
+      }
+      );
     }
     this.closeModal();
   }

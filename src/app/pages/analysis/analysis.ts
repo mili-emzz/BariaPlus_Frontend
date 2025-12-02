@@ -23,7 +23,7 @@ export class Analysis implements OnInit {
   genderId?: number;
   firstName?: string;
   lastName?: string;
-
+  fromAppointments: boolean = false;
 
   // indicadores y métricas ya mapeados para la vista
   indicators: IndicatorDisplay[] = [];
@@ -52,6 +52,14 @@ export class Analysis implements OnInit {
   ngOnInit(): void {
     // 1) si vienes desde la lista/detalle: /analysis/:id
     this.consultationId = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.route.queryParamMap.subscribe((queryparams) => {
+      
+      this.fromAppointments = queryparams.get('fromAppointments') === 'true';
+      console.log('Viene de citas (fromAppointments):', this.fromAppointments);
+    })
+
+
 
     // 2) podrías recibir también la respuesta de create() via state:
     const navState = history.state as { createdConsultation?: ConsultationDetailResponse };
