@@ -161,8 +161,10 @@
     </div>
 
     <!-- Botón finalizar -->
+     @if (!fromAppointments) {
     <div class="actions">
       <button class="btn-finish" (click)="onFinish()">Finalizar</button>
     </div>
+    }
   </section>
 </div>

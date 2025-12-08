@@ -261,7 +261,11 @@ export class AnthropometricMeasurements implements OnInit {
   handleModalConfirm(): void {
     if (this.modalType === 'success') {
       this.consultationStateService.clearAllConsultationData();
-      this.router.navigate(['/analysis', this.consultationId]);
+      this.router.navigate(['/analysis', this.consultationId],
+        {
+        queryParams: { fromAppointments: 'false' } 
+      }
+      );
     }
     this.closeModal();
   }

@@ -11,11 +11,9 @@ import {environment} from '../../../environments/environment';
 export class StatIndicatorService {
   constructor(private http: HttpClient) { }
 
-  apiUrl = environment.apiUrl;
-
   getIndicatorSeries(patientId: number, indicatorId: number):Observable<StatSeries> {
     console.log('id en service: ', indicatorId);
-    return this.http.get<StatsResponse>(`${this.apiUrl}/api/patient/${patientId}/stats?indicator=${indicatorId}`).pipe(
+    return this.http.get<StatsResponse>(`/api/patient/${patientId}/stats?indicator=${indicatorId}`).pipe(
       map(res => ({
           name: res.indicatorName,
           points:res.data

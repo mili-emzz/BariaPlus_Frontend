@@ -25,7 +25,11 @@ export class Appointments implements OnInit, OnChanges{
   }
 
   onClick(appointmentId: number) {
-    this.router.navigate(['/analysis', appointmentId]);
+    this.router.navigate(['/analysis', appointmentId],
+      {
+        queryParams: { fromAppointments: 'true' } 
+      }
+  );
   }
 
     ngOnInit() {

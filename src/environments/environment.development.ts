@@ -3,8 +3,9 @@ export const environment = {
   production: true,
   tokenKey: 'bp_token',
   doctorKey: 'bp_doctor',
-  apiUrl: 'http://ec2-98-95-251-108.compute-1.amazonaws.com:8080',
+  apiUrl: '/api',
+  //apiUrl: 'http://ec2-98-95-251-108.compute-1.amazonaws.com:8080',
 
-  enableDebugMode: false,
-  logLevel: 'error'
-};
+  enableDebugMode: true,
+  logLevel: 'debug'
+}
