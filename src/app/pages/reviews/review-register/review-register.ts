@@ -15,16 +15,21 @@ export class ReviewRegister implements OnInit {
   consultationId: number = 0;
   isSubmitting: boolean = false;
 
+  showModal = false;
+  modalType: 'success' | 'warning' | 'error' | 'info' | 'confirm' = 'success';
+  modalTitle = '';
+  modalMessage = '';
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private reviewsService: ReviewsService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.consultationId = params['consultationId'] ? +params['consultationId'] : 0;
-      
+
       if (!this.consultationId) {
         console.error('No se proporcionó ID de consulta');
       }
@@ -62,7 +67,10 @@ export class ReviewRegister implements OnInit {
     this.reviewsService.addReview(this.consultationId, request).subscribe({
       next: (response) => {
         if (response.success) {
-          alert('Valoración guardada exitosamente');
+          this.showSuccessModal(
+            '¡Valoración realizada!',
+            'Las valoraciones han sido guardadas exitosamente.'
+          );
           this.rating = 0;
           this.comment = '';
           this.router.navigate(['/reviews/promedio']);
@@ -72,10 +80,39 @@ export class ReviewRegister implements OnInit {
         this.isSubmitting = false;
       },
       error: (error) => {
-        console.error('Error al guardar valoración:', error);
-        alert(error.error?.message || 'Error al guardar la valoración');
+        this.showErrorModal('Error en la valoración', error.error?.message || 'Error al guardar la valoración');
         this.isSubmitting = false;
       }
     });
   }
+
+  showSuccessModal(title: string, message: string): void {
+    this.modalType = 'success';
+    this.modalTitle = title;
+    this.modalMessage = message;
+    this.showModal = true;
+  }
+
+  showErrorModal(title: string, message: string): void {
+    this.modalType = 'error';
+    this.modalTitle = title;
+    this.modalMessage = message;
+    this.showModal = true;
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+  }
+
+  handleModalConfirm(): void {
+    if (this.modalType === 'success') {
+      this.router.navigate(['/reviews/promedio']);
+    }
+    this.closeModal();
+  }
+
+  handleModalCancel(): void {
+    this.closeModal();
+  }
+
 }
