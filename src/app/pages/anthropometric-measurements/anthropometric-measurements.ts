@@ -77,7 +77,7 @@ export class AnthropometricMeasurements implements OnInit {
   ngOnInit(): void {
     this.initForm();
 
-    // ✅ Intentar primero con snapshot (puede tener los valores)
+    // Intentar primero con snapshot (puede tener los valores)
     const snapshotPatientId = Number(this.route.snapshot.queryParamMap.get('patientId')) || 0;
     const snapshotMedicalRecordId = Number(this.route.snapshot.queryParamMap.get('medicalRecordId')) || 0;
 
@@ -268,7 +268,6 @@ export class AnthropometricMeasurements implements OnInit {
 
   handleModalConfirm(): void {
     if (this.modalType === 'success') {
-      // Si es modal de éxito, limpiar estado y navegar
       this.consultationStateService.clearAllConsultationData();
       this.router.navigate(['/analysis', this.consultationId]);
     }
