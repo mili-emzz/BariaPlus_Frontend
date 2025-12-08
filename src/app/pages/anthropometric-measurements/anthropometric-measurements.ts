@@ -77,17 +77,13 @@ export class AnthropometricMeasurements implements OnInit {
   ngOnInit(): void {
     this.initForm();
 
-    // ✅ Intentar primero con snapshot (puede tener los valores)
+    // Intentar primero con snapshot (puede tener los valores)
     const snapshotPatientId = Number(this.route.snapshot.queryParamMap.get('patientId')) || 0;
     const snapshotMedicalRecordId = Number(this.route.snapshot.queryParamMap.get('medicalRecordId')) || 0;
 
     if (snapshotPatientId > 0 && snapshotMedicalRecordId > 0) {
       this.patientId = snapshotPatientId;
       this.medicalRecordId = snapshotMedicalRecordId;
-      console.log('✅ IDs obtenidos de snapshot:', {
-        patientId: this.patientId,
-        medicalRecordId: this.medicalRecordId
-      });
     }
     this.route.queryParamMap.subscribe(params => {
       const paramPatientId = Number(params.get('patientId')) || 0;
@@ -224,10 +220,6 @@ export class AnthropometricMeasurements implements OnInit {
         );
       },
       error: (error) => {
-        console.error('❌ ERROR COMPLETO:', error);
-        console.error('❌ Error status:', error.status);
-        console.error('❌ Error message:', error.error);
-
         let errorMessage = 'Error al guardar las mediciones';
 
         if (error.error?.message) {
@@ -268,7 +260,6 @@ export class AnthropometricMeasurements implements OnInit {
 
   handleModalConfirm(): void {
     if (this.modalType === 'success') {
-      // Si es modal de éxito, limpiar estado y navegar
       this.consultationStateService.clearAllConsultationData();
       this.router.navigate(['/analysis', this.consultationId],
         {

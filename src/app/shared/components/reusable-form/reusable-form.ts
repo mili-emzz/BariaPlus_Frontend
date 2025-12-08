@@ -23,8 +23,6 @@ export class ReusableForm {
     });
   }
 
-  //helper para control de lista
-
   getControl(name: string) {
     return this.formGroup.get(name) || null;
   }
