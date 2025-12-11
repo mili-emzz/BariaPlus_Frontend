@@ -1,0 +1,25 @@
+@if(isModalOpen){
+<main (click)="onBackdropClick()" class="modal">
+    <div class="modal-content" (click)="onModalClick($event)">
+
+        <div class="icon-container" [class.danger]="isDangerous">
+            @if(isDangerous){
+            <i class="fa fa-exclamation-triangle"></i>
+            }
+        </div>
+
+        <h2 class="modal-title">{{ title }}</h2>
+        <p class="modal-message">{{ message }}</p>
+
+        <div class="modal-actions">
+            <button type="button" class="btn btn-cancel" (click)="onCancel()">
+                {{ cancelText }}
+            </button>
+            <button type="button" class="btn btn-confirm" [class.btn-danger]="isDangerous" (click)="onConfirm()">
+                {{ confirmText }}
+            </button>
+        </div>
+
+    </div>
+</main>
+}

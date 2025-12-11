@@ -1,0 +1,15 @@
+<div class="progress-stepper">
+  @for (step of steps; track $index) {
+    <div 
+      class="step" 
+      [class.active]="$index + 1 <= currentStep"
+      [class.current]="$index + 1 === currentStep">
+    </div>
+    @if ($index < totalSteps - 1) {
+      <div 
+        class="step-line" 
+        [class.active]="$index + 1 < currentStep">
+      </div>
+    }
+  }
+</div>

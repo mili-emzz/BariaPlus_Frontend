@@ -1,0 +1,10 @@
+@if (step === 1) {
+  <h4>¿Ya tienes una cuenta?</h4>
+  <h5><a routerLink="/login">Inicia sesión</a></h5>
+} @else {
+  <section class="icon">
+    <div class="icon-wrap" (click)="onPreviousStep()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </div>
+  </section>
+}

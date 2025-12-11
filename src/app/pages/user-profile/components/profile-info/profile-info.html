@@ -1,0 +1,16 @@
+<section class="personal-info">
+    <header class="subtitle-content">
+        <h2 class="subtitle">{{title}}</h2>
+    </header>
+
+    <div class="content">
+        @for (item of data; track item.label){
+        <div class="info">
+            <span class="highlight">
+                {{ item.label }}
+            </span>
+            <p>{{item.value}}</p>
+        </div>
+        }
+    </div>
+</section>

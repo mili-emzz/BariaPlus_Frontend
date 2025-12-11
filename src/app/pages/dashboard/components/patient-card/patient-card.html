@@ -1,0 +1,34 @@
+<article class="patient-card" (click)="viewPatientDetails()">
+    <header class="menu" (click)="toggleMenu($event)">
+        <button class="menu-trigger" aria-label="Opciones">
+            <i class="fa fa-ellipsis-vertical"></i>
+        </button>
+        <div class="dropdown-menu" [class.show]="menuOpen">
+            <a href="ruta-a-editar" class="menu-item" (click)="onEdit($event)">
+                <span>Editar paciente</span>
+            </a>
+            <button class="menu-item delete" (click)="onDelete($event)">
+                <span>Marcar como inactivo</span>
+            </button>
+        </div>
+    </header>
+
+    <figure class="patient-avatar">
+        <img src="{{getAvatar(patient.genderId)}}" alt="Avatar paciente">
+    </figure>
+
+    <div class="patient-info">
+        <h3 class="name">{{patient.firstName}}</h3>
+        <p class="lastname">{{patient.lastName}}</p>
+    </div>
+</article>
+
+<app-confirm-modal
+    [title]="'¿Eliminar paciente?'"
+    [message]="'¿Estás seguro de marcar como inactivo a ' + patientToDeleteName + '? Esta acción no se puede deshacer.'"
+    [confirmText]="'Sí, eliminar'"
+    [cancelText]="'Cancelar'"
+    [isDangerous]="true"
+    (confirmed)="onConfirmDelete()"
+    (cancelled)="onCancelDelete()">
+</app-confirm-modal>

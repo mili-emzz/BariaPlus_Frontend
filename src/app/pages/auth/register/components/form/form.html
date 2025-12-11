@@ -1,0 +1,25 @@
+<section>
+  <header>
+    <app-step-indicator [currentStep]="currentStep" [totalSteps]="totalSteps"></app-step-indicator>
+    <h1>Crear cuenta</h1>
+  </header>
+  <article class="form">
+    <div class="form-content">
+      @if (currentStep === 1){
+        <app-reusable-form [formItems]="registerPartOne" [formGroup]="userForm" class="input-form-register"></app-reusable-form>
+      } @else {
+        <app-reusable-form [formItems]="registerPartTwo" [formGroup]="userForm" class="input-form-register"></app-reusable-form>
+      }
+    </div>
+  </article>
+
+  <div class="buttons-container">
+    @if (currentStep === 1){
+      <app-register-form-buttons [step]="currentStep" (nextStep)="onPartOneNext()"></app-register-form-buttons>
+      <app-register-form-footer [step]="currentStep"></app-register-form-footer>
+    } @else {
+      <app-register-form-buttons [step]="currentStep" (register)="onPartTwoRegister()"></app-register-form-buttons>
+      <app-register-form-footer [step]="currentStep" (prevStep)="previousStep()"></app-register-form-footer>
+    }
+  </div>
+</section>

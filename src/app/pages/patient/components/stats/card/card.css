@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:host{
+  height: 97%;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr;
+}
+
+.card-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+h5{
+  color: var(--primary-color);
+}
+
+.graph-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

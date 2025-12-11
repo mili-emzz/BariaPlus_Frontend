@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+.sidebar{
+  display: flex;
+  padding: 40px 0 40px 0px;
+  position: fixed;
+  min-height: 500px;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+app-sidebar{
+  width: 100px;
+  margin-left: 40px;
+  transition: width 0.3s ease;
+}
+
+.container.sidebar-expanded app-sidebar{
+  width: 200px;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 180px;
+  padding:  40px 0 40px 0px;;
+  max-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.container.container.sidebar-expanded .main-content{
+  margin-left: 280px;
+}

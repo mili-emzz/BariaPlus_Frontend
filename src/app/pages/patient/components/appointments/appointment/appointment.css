@@ -1,0 +1,23 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:host{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  transition: 100ms all ease-out;
+  padding: 3%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:host:hover{
+  transition: 100ms all ease-in;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+.progress-stepper {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.step {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.step.active {
+    background-color: #FF9966;
+}
+
+.step.current {
+    background-color: #FF9966;
+    box-shadow: 0 0 0 3px rgba(255, 153, 102, 0.2);
+}
+
+.step-line {
+    width: 160px;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin: 0 4px;
+    transition: background-color 0.3s ease;
+}
+
+.step-line.active {
+    background-color: #FF9966;
+}

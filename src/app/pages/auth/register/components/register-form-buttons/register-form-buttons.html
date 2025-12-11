@@ -1,0 +1,10 @@
+@if (step === 1){
+  <div class="step-one">
+    <app-button [type]="'button'" [name]="'cancel'" [context]="'default'" [text]="'Cancelar'" (pressed)="onCancel()" ></app-button>
+    <app-button [type]="'button'" [name]="'continue'" [context]="'continue'" [text]="'Continuar'" (pressed)="onContinue()"></app-button>
+  </div>
+} @else {
+  <div class="step-two">
+    <app-button [type]="'button'" [name]="'register'" [context]="'primary longButton'" [text]="'Registrarse'" (pressed)="onRegister()"></app-button>
+  </div>
+}

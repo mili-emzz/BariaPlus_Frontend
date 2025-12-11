@@ -1,0 +1,53 @@
+<article class="personal-info">
+    <div class="title">
+      <h2>{{ title }}</h2>
+    </div>
+
+    <form class="form" [formGroup]="formGroup">
+        @for (item of formItems; track item.name) {
+
+        <div class="input-group">
+            @if (item.type === 'text' || item.type === 'tel' || item.type === 'date' || item.type === 'password' || item.type === 'email') {
+
+            <label [for]="item.name" class="form-label">{{ item.label }}</label>
+
+            <input
+                [id]="item.name"
+                [type]="item.type"
+                [placeholder]="item.placeholder"
+                [formControlName]="item.name"
+                class="form-input {{classHelper}}"
+                (input)="onInputChange(item.name, $any($event.target).value)"
+            />
+
+            } @else if (item.type === 'select') {
+
+            <label [for]="item.name" class="form-label">{{ item.label }}</label>
+            <select
+                [id]="item.name"
+                [formControlName]="item.name"
+                class="form-select {{classHelper}}" (change)="onInputChange(item.name, $any($event.target).value)"
+            >
+                <option value="" disabled>Seleccionar</option>
+                @for (option of item.options; track option) {
+                <option [value]="option">{{ option }}</option>
+                }
+            </select>
+            }
+            @if (formGroup.get(item.name)?.invalid && formGroup.get(item.name)?.touched) {
+            <div class="error-message">
+                Campo requerido
+            </div>
+            }
+          @if (item.name === 'checkPassword'
+          && formGroup.get('checkPassword')?.valid
+          && formGroup.errors?.['passwordMismatch']
+          && formGroup.get('checkPassword')?.touched) {
+            <div class="error-message">
+              Las contraseñas no coinciden
+            </div>
+          }
+        </div>
+        }
+    </form>
+</article>

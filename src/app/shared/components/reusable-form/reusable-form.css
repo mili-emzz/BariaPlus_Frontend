@@ -1,0 +1,118 @@
+.personal-info {
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 24px;
+  align-items: flex-end;
+  justify-items: flex-end;
+}
+
+.add {
+  padding: 15px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: var(--tertiary-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.title h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-select {
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  background-color: #fff;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: #7e7e7e;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+:host(.input-form-register) .form-input,
+:host(.input-form-register) .form-select{
+  padding: 8px 12px;
+  font-size: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+:host(.input-form-register) .error-message {
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  padding: 0;
+  margin: 0;
+}
+
+.form:has(.error-message){
+  gap: 3px;
+}
+
+:host(.input-form-register) .form-input.ng-invalid.ng-touched,
+:host(.input-form-register) .form-select.ng-invalid.ng-touched {
+  border-color: red;
+}

@@ -42,6 +42,7 @@ img{
 
 .hero-cta-button{
     background-color: var(--primary-color);
+    cursor: pointer;
     color: #FFFFFF;
     padding: 15px 30px;
     text-decoration: none;
@@ -61,7 +62,7 @@ z-index: 0; /* Atrás de todo */
 
 .hero-wrapper .deco {
     position: absolute; 
-    bottom: -190px; /* 150px FUERA del fondo del hero-wrapper, para que se vea entre secciones */
+    bottom: -190px;
     left: -5px;  
     max-width: 250px; 
     width: 20vw; /* El ancho de la imagen decorativa será el 20% del ancho de la vista (viewport) */

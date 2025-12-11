@@ -1,0 +1,11 @@
+<div class="dropdown">
+    <button class="dropbtn" (click)="toggleMenu($event)">
+        Filtrar por...
+        <i class="fa fa-chevron-down"></i>
+    </button>
+    <div class="dropdown_content" [class.show]="menuOpen">
+        <a href="#">Recién Agregado</a>
+        <a href="#">De la A a la Z</a>
+        <a href="#">De la Z a la A</a>
+    </div>
+</div>

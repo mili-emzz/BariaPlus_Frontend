@@ -1,0 +1,52 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:host{
+  height: 100%;
+  width: 100%;
+  padding-top: 3%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-row-gap: 10px;
+}
+
+.title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-icon{
+  height: 60%;
+}
+
+.stats-container{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  box-sizing: border-box;
+}
+
+h4{
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 100ms all ease-out;
+  height: 100%;
+}
+
+h4:hover{
+  color: var(--hover-color);
+  transition: 100ms all ease-in;
+  text-decoration: underline;
+  cursor: pointer;
+}

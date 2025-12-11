@@ -1,0 +1,9 @@
+<div class="card-info">
+  <img [src]="cardInfo.iconPath" class="icon">
+  <h5>{{cardInfo.title}}</h5>
+</div>
+<div class="graph-container">
+  @if (!config.chartData){
+    <h6>No hay nada para mostrar</h6>
+  }
+</div>

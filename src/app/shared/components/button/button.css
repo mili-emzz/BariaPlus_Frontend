@@ -1,0 +1,39 @@
+button{
+  border:none;
+  height: 8vh;
+  width: 14vw;
+  border-radius: 15px;
+  font-weight: bolder;
+  font-size: larger;
+  transition: 100ms al ease-out;
+}
+
+button:hover{
+  transition:100ms all ease-in;
+}
+
+.default:hover{
+  background-color: #7e7e7e;
+  color: white;
+}
+
+.continue, .primary{
+  background-color: var(--primary-color);
+  color: white;
+  transition: 100ms all ease-in;
+}
+
+.continue:hover{
+  background-color: var(--hover-color);
+  transition: 100ms all ease-out;
+}
+
+.longButton{
+  width: 100%;
+  font-size: large;
+}
+
+.longButton:hover{
+  background-color: var(--hover-color);
+  transition: 100ms all ease-out;
+}

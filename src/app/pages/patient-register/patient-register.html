@@ -1,0 +1,111 @@
+<section class="register-wrap">
+    <header class="title-container">
+        <h2 class="title">Registro Paciente</h2>
+    </header>
+
+    <article class="form">
+        <div class="step-indicator">
+            <app-step-indicator [currentStep]="currentStep" [totalSteps]="totalSteps">
+            </app-step-indicator>
+        </div>
+
+        <div class="form-content">
+            @if (currentStep === 1) {
+            <app-reusable-form 
+                [title]="'Información Personal'" 
+                [formItems]="personalInfo" 
+                [formGroup]="patientForm">
+            </app-reusable-form>
+
+            } @else if (currentStep === 2) {
+            <div class="dynamic-container">
+                @for(allergyGroup of allergies.controls; track $index){
+                <div class="form-item-wrapper">
+                    <app-reusable-form 
+                        [title]="'Alergia'" 
+                        [formItems]="allergiesItems" 
+                        [formGroup]="$any(allergyGroup)">
+                    </app-reusable-form>
+                    
+                    @if (allergies.length > 1) {
+                    <button type="button" class="remove-btn" (click)="removeAllergy($index)">
+                        <i class="fa fa-trash"></i> Eliminar
+                    </button>
+                    }
+                </div>
+                }
+
+                <button type="button" class="add-btn" (click)="addAllergy()">
+                    <i class="fa fa-plus"></i> Agregar
+                </button>
+            </div>
+
+            } @else if (currentStep === 3) {
+            <div class="dynamic-container">
+                @for(diseaseGroup of diseases.controls; track $index){
+                <div class="form-item-wrapper">
+                    <app-reusable-form 
+                        [title]="'Enfermedad'" 
+                        [formItems]="diseasesItems"
+                        [formGroup]="$any(diseaseGroup)">
+                    </app-reusable-form>
+                    
+                    @if (diseases.length > 1) {
+                    <button type="button" class="remove-btn" (click)="removeDisease($index)">
+                        <i class="fa fa-trash"></i> Eliminar
+                    </button>
+                    }
+                </div>
+                }
+
+                <button type="button" class="add-btn" (click)="addDisease()">
+                    <i class="fa fa-plus"></i> Agregar
+                </button>
+            </div>
+
+            } @else if (currentStep === 4) {
+            <div class="dynamic-container">
+                @for(medicalHistoryGroup of medicalHistories.controls; track $index){
+                <div class="form-item-wrapper">
+                    <app-reusable-form 
+                        [title]="'Antecedentes'" 
+                        [formItems]="medicalHistoriesItems"
+                        [formGroup]="$any(medicalHistoryGroup)">
+                    </app-reusable-form>
+                    
+                    @if (medicalHistories.length > 1) {
+                    <button type="button" class="remove-btn" (click)="removeMedicalHistory($index)">
+                        <i class="fa fa-trash"></i> Eliminar
+                    </button>
+                    }
+                </div>
+                }
+
+                <button type="button" class="add-btn" (click)="addMedicalHistory()">
+                    <i class="fa fa-plus"></i> Agregar
+                </button>
+            </div>
+            }
+        </div>
+    </article>
+
+    <div class="buttons-container">
+        @if (!isFirstStep()) {
+        <button type="button" class="back" (click)="previousStep()">
+            <i class="fa fa-arrow-left"></i>
+            Anterior
+        </button>
+        }
+
+        <button type="button" class="next" (click)="isLastStep() ? submitAllData() : nextStep()"
+            [disabled]="isSubmitted">
+            @if (isLastStep()) {
+                {{ isSubmitted ? 'Enviando...' : 'Finalizar' }}
+                <i class="fa fa-check"></i>
+            } @else {
+                Siguiente
+                <i class="fa fa-arrow-right"></i>
+            }
+        </button>
+    </div>
+</section>

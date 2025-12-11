@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:host{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-column-gap: 3%;
+  grid-template-rows: 100%;
+  box-sizing: border-box;
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+}

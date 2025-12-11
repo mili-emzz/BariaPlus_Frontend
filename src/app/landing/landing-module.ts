@@ -6,6 +6,8 @@ import { FeaturesSection } from './components/features-section/features-section'
 import { Footer } from './components/footer/footer';
 import { LandingPage } from './landing-page/landing-page';
 import { SharedModule } from '../shared/shared-module';
+import { AppRoutingModule } from "../app-routing-module";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { SharedModule } from '../shared/shared-module';
   ],
   imports: [
     CommonModule,
-    SharedModule
-  ],
+    SharedModule,
+    AppRoutingModule,
+    RouterModule
+],
   exports: [
     LandingPage
   ]

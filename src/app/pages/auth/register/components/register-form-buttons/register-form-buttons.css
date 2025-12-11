@@ -1,0 +1,16 @@
+:host{
+  width: 100%;
+  display: flex;
+  margin-top: 4%;
+}
+
+.step-one{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-two{
+  width: 100%;
+}
+

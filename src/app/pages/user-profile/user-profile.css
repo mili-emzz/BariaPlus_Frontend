@@ -1,0 +1,35 @@
+.user-profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 50px;
+}
+
+.title-container{
+    margin-top: -50px;
+    margin-bottom: -24px;
+}
+
+.profile-content{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+
+.edit-btn{
+    padding: 12px 16px;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 600;
+    width: fit-content;
+    color: white;
+    background-color: var(--tertiary-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

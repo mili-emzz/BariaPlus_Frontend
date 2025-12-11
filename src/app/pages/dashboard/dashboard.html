@@ -1,0 +1,17 @@
+<section class="dashboard">
+    <header class="title-container">
+        <h2 class="title">Pacientes</h2>
+    </header>
+
+    <div class="search-content">
+        <app-filter (onFilter)="onFilter($event)"></app-filter>
+        <app-search-bar (onSearch)="onSearch(searchTerm)"></app-search-bar>
+    </div>
+
+    <section class="cards-container">
+        @for (patient of filteredPatients; track trackByPatientId($index, patient)){
+        <app-patient-card [patient]="patient" (patientDeleted)="onPatientDeleted($event)"></app-patient-card>
+    }
+    </section>
+
+</section>

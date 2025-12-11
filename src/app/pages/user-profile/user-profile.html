@@ -1,0 +1,27 @@
+<section class="user-profile">
+
+    <div class="errorMesagge">
+        @if (errorMessage) {
+        <div class="alert-error">
+            {{ errorMessage }}
+        </div>
+        }
+    </div>
+
+    <header class="title-container">
+        <h2 class="title">Perfil</h2>
+    </header>
+
+    <article class="profile-content">
+        <div class="info">
+            <app-profile-info [title]="'Información personal'" [data]="personalInfo"></app-profile-info>
+        </div>
+
+        <div class="info">
+            <app-profile-info [title]="'Información profesional'" [data]="profesionalInfo"></app-profile-info>
+        </div>
+
+        <button class="edit-btn">Editar</button>
+    </article>
+
+</section>

@@ -1,0 +1,38 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:host{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 8% 92%;
+}
+
+main{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 74% 24%;
+  grid-template-rows: 1fr;
+  grid-column-gap: 1%;
+  overflow: hidden;
+}
+
+.info-wrapper{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 55% 45%;
+}
+
+.list-wrapper{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 100%;
+  min-height: 0;
+}
